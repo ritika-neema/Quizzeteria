@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkIndigo"
+    tools:context="com.ritikaneema.example.quizzeteria.MainActivity">
+
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_32dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewQuesNo"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_32dp"
+        android:layout_marginStart="@dimen/_32dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:text="Question 1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textViewQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_32dp"
+        android:layout_marginTop="140dp"
+        android:paddingRight="@dimen/_32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.255"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_32dp"
+        android:layout_marginRight="@dimen/_32dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="16dp"
+        android:padding="@dimen/_8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewQuestion">
+
+        <RadioButton
+            android:id="@+id/options_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:buttonTint="@color/white"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/options_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:buttonTint="@color/white"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/options_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:buttonTint="@color/white"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/options_d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:buttonTint="@color/white"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/editTextLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewQuestion">
+
+        <EditText
+            android:id="@+id/editTextAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_16dp"
+            android:hint="Enter your answer here"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/checkboxLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewQuestion">
+
+        <CheckBox
+            android:id="@+id/checkboxA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/white"
+            android:fontFamily="serif"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkboxB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/white"
+            android:fontFamily="serif"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkboxC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/white"
+            android:fontFamily="serif"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkboxD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/white"
+            android:fontFamily="serif"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="@dimen/_250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:background="@color/colorAccent"
+        android:elevation="@dimen/_8dp"
+        android:text="Submit"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

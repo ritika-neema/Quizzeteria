@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Quizzeteria</string>
+    <string name="ques1">Which component is not activated by an Intent?</string>
+    <string name="optn_1a">activity</string>
+    <string name="optn_1b">services</string>
+    <string name="optn_1c">contentProvider</string>
+    <string name="optn_1d">broadcastReceiver</string>
+
+    <string name="ques2">Parent class of Activity?</string>
+    <string name="optn_2a">object</string>
+    <string name="optn_2b">context</string>
+    <string name="optn_2c">activityGroup</string>
+    <string name="optn_2d">contextThemeWrapper</string>
+
+    <string name="ques3">When the activity is not in focus, but still visible on the screen it is in?</string>
+    <string name="optn_3a">running state</string>
+    <string name="optn_3b">paused state</string>
+    <string name="optn_3c">stopped state</string>
+    <string name="optn_3d">destroyed state</string>
+
+    <string name="ques4">You can shut down an activity by calling its _______ method</string>
+    <string name="optn_4a">onDestory()</string>
+    <string name="optn_4b">finishActivity()</string>
+    <string name="optn_4c">finish()</string>
+    <string name="optn_4d">none of the above</string>
+
+    <string name="ques5">Once installed on a device, each Android application lives in_______?</string>
+    <string name="optn_5a">device memory</string>
+    <string name="optn_5b">external memory</string>
+    <string name="optn_5c">security sandbox</string>
+    <string name="optn_5d">none of the above</string>
+
+    <string name="ques6">What is the difference between Activity context and Application Context?</string>
+    <string name="optn_6a">The Activity instance is tied to the lifecycle of an Activity. while
+            the application instance is tied to the lifecycle of the application</string>
+    <string name="optn_6b">The Activity instance is tied to the lifecycle of the application,
+            while the application instance is tied to the lifecycle of an Activity.</string>
+    <string name="optn_6c">The Activity instance is tied to the lifecycle of the Activity,
+            while the application instance is tied to the lifecycle of an application.</string>
+    <string name="optn_6d">none of the above</string>
+
+    <string name="ques7"> Which of the  important device characteristics that you should
+            consider as you design and develop your application?</string>
+    <string name="optn_7a">screen size and density</string>
+    <string name="optn_7b">device features</string>
+    <string name="optn_7c">input configurations</string>
+    <string name="optn_7d">all the above</string>
+
+    <string name="ques8">What is the name of the program that converts Java byte code into Dalvik byte code?</string>
+    <string name="optn_8a">Android Interpretive Compiler (AIC)</string>
+    <string name="optn_8b">Dalvik Converter</string>
+    <string name="optn_8c">Dex compiler</string>
+    <string name="optn_8d">Mobile Interpretive Compiler (MIC)</string>
+
+    <string name="ques9">Which are the  screen densities in Android?</string>
+    <string name="optn_9a">low density</string>
+    <string name="optn_9b">medium density</string>
+    <string name="optn_9c">extra high density</string>
+    <string name="optn_9d">extra low density</string>
+
+    <string name="ques10">The Open Handset Alliance was announced in the year</string>
+    <string name="hintEdiText"></string>
+    <string name="finalMessage">Thanks for giving the Quiz!! \n You scored %1$d out of 10</string>
+
+</resources>
