@@ -2,6 +2,8 @@ package com.ritikaneema.example.quizzeteria;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,9 +16,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public int questions[] = {R.string.ques1, R.string.ques2, R.string.ques3, R.string.ques4,
+    private int questions[] = {R.string.ques1, R.string.ques2, R.string.ques3, R.string.ques4,
             R.string.ques5, R.string.ques6, R.string.ques7, R.string.ques8, R.string.ques9, R.string.ques10};
-    public int options[] = {R.string.optn_1a, R.string.optn_1b, R.string.optn_1c, R.string.optn_1d,
+    private int options[] = {R.string.optn_1a, R.string.optn_1b, R.string.optn_1c, R.string.optn_1d,
             R.string.optn_2a, R.string.optn_2b, R.string.optn_2c, R.string.optn_2d,
             R.string.optn_3a, R.string.optn_3b, R.string.optn_3c, R.string.optn_3d,
             R.string.optn_4a, R.string.optn_4b, R.string.optn_4c, R.string.optn_4d,
@@ -25,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
             R.string.optn_7a, R.string.optn_7b, R.string.optn_7c, R.string.optn_7d,
             R.string.optn_8a, R.string.optn_8b, R.string.optn_8c, R.string.optn_8d,
             R.string.optn_9a, R.string.optn_9b, R.string.optn_9c, R.string.optn_9d};
-    public RadioGroup radioGroupOptions;
-    public Button submitButton;
-    public RadioButton radioButtonOptnA, radioButtonOptnB, radioButtonOptnC, radioButtonOptnD;
-    public CheckBox checkBoxA, checkBoxB, checkBoxC, checkBoxD;
-    EditText editTextAnswer;
-    TextView tvQuestion, textViewScore, textViewQuesNo;
-    LinearLayout editTextLayout, checkBoxLayout;
+    private RadioGroup radioGroupOptions;
+    private Button submitButton;
+    private RadioButton radioButtonOptnA, radioButtonOptnB, radioButtonOptnC, radioButtonOptnD;
+    private CheckBox checkBoxA, checkBoxB, checkBoxC, checkBoxD;
+    private EditText editTextAnswer;
+    private TextView tvQuestion, textViewScore, textViewQuesNo;
+    private LinearLayout editTextLayout, checkBoxLayout;
     private int quesTracker = 0, optionTracker = -1;
     private int score = 0;
 
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                         if (radioButtonOptnB.isChecked()) {
                             score += 1;
                         }
+                        //Removing Radiogroup options from UI and adding checkboxes for next question
                         radioGroupOptions.setVisibility(View.INVISIBLE);
                         checkBoxLayout.setVisibility(View.VISIBLE);
                         break;
@@ -109,13 +112,18 @@ public class MainActivity extends AppCompatActivity {
                         if (checkBoxA.isChecked() && checkBoxB.isChecked() && checkBoxC.isChecked()) {
                             score += 1;
                         }
+                        //Removing CheckBoxes from UI and adding EditText for next question
                         checkBoxLayout.setVisibility(View.INVISIBLE);
                         editTextLayout.setVisibility(View.VISIBLE);
                         break;
                     }
                     case 9:
-                        if (editTextAnswer.getText().toString() == "2007")
-                            score += 1;
+                        if (editTextAnswer.getText().toString().equals(null) || editTextAnswer.getText().toString().equals("")) {
+                            break;
+                        } else {
+                            if (Integer.parseInt(editTextAnswer.getText().toString()) == 2007)
+                                score += 1;
+                        }
                         break;
                 }
                 radioGroupOptions.clearCheck();
@@ -126,16 +134,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setQuestion(int ques) {
-
-
         //setting radiobutton options if Question No < 9 (ques <8) else setting checkbox options for Question No 9(ques==9)
         if (ques == 10) {
+            CardView cardViewQues = findViewById(R.id.card_viewQuestions);
+            cardViewQues.setVisibility(View.GONE);
             editTextLayout.setVisibility(View.INVISIBLE);
             submitButton.setVisibility(View.INVISIBLE);
-            tvQuestion.setText(getString(R.string.finalMessage, score));
-            tvQuestion.setTextSize(24);
-            tvQuestion.setTextColor(getResources().getColor(R.color.white));
-            textViewScore.setText("Score: " + String.valueOf(score));
+            textViewScore.setVisibility(View.GONE);
+
+            textViewQuesNo.setText(getString(R.string.finalMessage, score));
+            textViewQuesNo.setTextSize(24);
+            textViewQuesNo.setTextColor(getResources().getColor(R.color.white));
+            // textViewScore.setText("Score: " + String.valueOf(score));
+            textViewQuesNo.setGravity(Gravity.CENTER);
         } else {
             if (ques < 8) {
                 tvQuestion.setText(questions[ques]);
@@ -154,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             ques++;
-            textViewQuesNo.setText("Question " + String.valueOf(ques) + "/10");
+            textViewQuesNo.setText("Ques. " + String.valueOf(ques) + "/10");
 
             textViewScore.setText("Score: " + String.valueOf(score));
         }
