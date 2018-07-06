@@ -60,7 +60,8 @@
 
     <string name="ques10">The Open Handset Alliance was announced in the year</string>
     <string name="hintEditText">Enter your answer here</string>
-    <string name="finalMessage">Thanks for giving the Quiz!! \n You scored %1$d out of 10</string>
+    <string name="thankyouMessage">Thanks for giving the Quiz!! </string>
+    <string name="scoreMessage">You scored %1$d out of 10</string>
     <string name="submit">Submit</string>
 
 </resources>

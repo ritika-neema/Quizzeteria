@@ -12,6 +12,13 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static butterknife.ButterKnife.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,13 +34,29 @@ public class MainActivity extends AppCompatActivity {
             R.string.optn_7a, R.string.optn_7b, R.string.optn_7c, R.string.optn_7d,
             R.string.optn_8a, R.string.optn_8b, R.string.optn_8c, R.string.optn_8d,
             R.string.optn_9a, R.string.optn_9b, R.string.optn_9c, R.string.optn_9d};
-    private RadioGroup radioGroupOptions;
-    private Button submitButton;
-    private RadioButton radioButtonOptnA, radioButtonOptnB, radioButtonOptnC, radioButtonOptnD;
-    private CheckBox checkBoxA, checkBoxB, checkBoxC, checkBoxD;
-    private EditText editTextAnswer;
-    private TextView tvQuestion, textViewScore, textViewQuesNo;
-    private LinearLayout editTextLayout, checkBoxLayout;
+    @BindView(R.id.radioGroup) RadioGroup radioGroupOptions;
+    @BindView(R.id.options_a) RadioButton radioButtonOptnA;
+    @BindView(R.id.options_b) RadioButton radioButtonOptnB;
+    @BindView(R.id.options_c) RadioButton radioButtonOptnC;
+    @BindView(R.id.options_d) RadioButton radioButtonOptnD;
+
+    @BindView(R.id.buttonSubmit) Button submitButton;
+
+    @BindView(R.id.checkboxLayout) LinearLayout checkBoxLayout;
+    @BindView(R.id.checkboxA)     CheckBox checkBoxA;
+    @BindView(R.id.checkboxB)     CheckBox checkBoxB;
+    @BindView(R.id.checkboxC)     CheckBox checkBoxC;
+    @BindView(R.id.checkboxD)     CheckBox checkBoxD;
+
+    @BindView(R.id.editTextLayout) LinearLayout editTextLayout;
+    @BindView(R.id.editTextAnswer) EditText editTextAnswer;
+
+    @BindView(R.id.textViewQuestion) TextView tvQuestion;
+    @BindView(R.id.textViewScore) TextView textViewScore;
+    @BindView(R.id.textViewQuesNo) TextView textViewQuesNo;
+
+    @BindView( R.id.card_viewQuestions) CardView cardViewQues;
+
     private int quesTracker = 0, optionTracker = -1;
     private int score = 0;
 
@@ -42,28 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        tvQuestion = findViewById(R.id.textViewQuestion);
-
-        radioGroupOptions = findViewById(R.id.radioGroup);
-        radioButtonOptnA = findViewById(R.id.options_a);
-        radioButtonOptnB = findViewById(R.id.options_b);
-        radioButtonOptnC = findViewById(R.id.options_c);
-        radioButtonOptnD = findViewById(R.id.options_d);
-
-        checkBoxLayout = findViewById(R.id.checkboxLayout);
-        checkBoxA = findViewById(R.id.checkboxA);
-        checkBoxB = findViewById(R.id.checkboxB);
-        checkBoxC = findViewById(R.id.checkboxC);
-        checkBoxD = findViewById(R.id.checkboxD);
-
-        editTextLayout = findViewById(R.id.editTextLayout);
-        editTextAnswer = findViewById(R.id.editTextAnswer);
-
-        submitButton = findViewById(R.id.buttonSubmit);
-
-        textViewScore = findViewById(R.id.textViewScore);
-        textViewQuesNo = findViewById(R.id.textViewQuesNo);
+        bind(this);
 
         setQuestion(quesTracker);
 
@@ -104,26 +106,22 @@ public class MainActivity extends AppCompatActivity {
                             score += 1;
                         }
                         //Removing Radiogroup options from UI and adding checkboxes for next question
-                        radioGroupOptions.setVisibility(View.INVISIBLE);
+                        radioGroupOptions.setVisibility(View.GONE);
                         checkBoxLayout.setVisibility(View.VISIBLE);
                         break;
                     }
                     case 8: {
-                        if (checkBoxA.isChecked() && checkBoxB.isChecked() && checkBoxC.isChecked()) {
+                        if (checkBoxA.isChecked() && checkBoxB.isChecked() && checkBoxC.isChecked() && !checkBoxD.isChecked()) {
                             score += 1;
                         }
                         //Removing CheckBoxes from UI and adding EditText for next question
-                        checkBoxLayout.setVisibility(View.INVISIBLE);
+                        checkBoxLayout.setVisibility(View.GONE);
                         editTextLayout.setVisibility(View.VISIBLE);
                         break;
                     }
                     case 9:
-                        if (editTextAnswer.getText().toString().equals(null) || editTextAnswer.getText().toString().equals("")) {
-                            break;
-                        } else {
-                            if (Integer.parseInt(editTextAnswer.getText().toString()) == 2007)
-                                score += 1;
-                        }
+                        if (editTextAnswer.getText().toString().equals("2007"))
+                            score += 1;
                         break;
                 }
                 radioGroupOptions.clearCheck();
@@ -136,16 +134,17 @@ public class MainActivity extends AppCompatActivity {
     private void setQuestion(int ques) {
         //setting radiobutton options if Question No < 9 (ques <8) else setting checkbox options for Question No 9(ques==9)
         if (ques == 10) {
-            CardView cardViewQues = findViewById(R.id.card_viewQuestions);
+
             cardViewQues.setVisibility(View.GONE);
-            editTextLayout.setVisibility(View.INVISIBLE);
-            submitButton.setVisibility(View.INVISIBLE);
+            editTextLayout.setVisibility(View.GONE);
+            submitButton.setVisibility(View.GONE);
             textViewScore.setVisibility(View.GONE);
 
-            textViewQuesNo.setText(getString(R.string.finalMessage, score));
+            Toast.makeText(getApplicationContext(), getString(R.string.scoreMessage,score), Toast.LENGTH_LONG).show();
+
+            textViewQuesNo.setText(R.string.thankyouMessage);
             textViewQuesNo.setTextSize(24);
             textViewQuesNo.setTextColor(getResources().getColor(R.color.white));
-            // textViewScore.setText("Score: " + String.valueOf(score));
             textViewQuesNo.setGravity(Gravity.CENTER);
         } else {
             if (ques < 8) {
