@@ -111,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case 8: {
-                        if (checkBoxA.isChecked() && checkBoxB.isChecked() && checkBoxC.isChecked() && !checkBoxD.isChecked()) {
+                        if (checkBoxA.isChecked() && checkBoxB.isChecked() && checkBoxC.isChecked()
+                                && !checkBoxD.isChecked()) {
                             score += 1;
                         }
                         //Removing CheckBoxes from UI and adding EditText for next question

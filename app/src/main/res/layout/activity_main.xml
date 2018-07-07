@@ -1,220 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
-
-    <TextView
-        android:id="@+id/textViewScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_32dp"
-        android:layout_marginTop="@dimen/_16dp"
-        android:text="0"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewQuesNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_32dp"
-        android:layout_marginTop="@dimen/_16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_viewQuestions"
-        app:cardBackgroundColor="@color/white"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="370dp"
-        android:layout_marginBottom="120dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="64dp"
-        app:cardElevation="@dimen/_16dp"
-        app:cardCornerRadius="@dimen/_4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
 
-        <android.support.constraint.ConstraintLayout
+        <TextView
+            android:id="@+id/textViewScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_32dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewQuesNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_viewQuestions"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="370dp"
+            android:layout_marginBottom="120dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="64dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_4dp"
+            app:cardElevation="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textViewQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/_16dp"
-                android:paddingRight="@dimen/_16dp"
-                android:paddingTop="@dimen/_16dp"
-                android:text="@string/ques1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
-
-                <RadioButton
-                    android:id="@+id/options_a"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textViewQuestion"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginRight="@dimen/_8dp"
-                    android:buttonTint="@color/colorPrimary"
-                    android:textColor="@color/black" />
-
-                <RadioButton
-                    android:id="@+id/options_b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginRight="@dimen/_8dp"
-                    android:buttonTint="@color/colorPrimary"
-                    android:textColor="@color/black" />
-
-                <RadioButton
-                    android:id="@+id/options_c"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginEnd="@dimen/_8dp"
-                    android:buttonTint="@color/colorPrimary"
+                    android:paddingLeft="@dimen/_16dp"
+                    android:paddingRight="@dimen/_16dp"
+                    android:paddingTop="@dimen/_16dp"
+                    android:text="@string/ques1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/black"
-                    />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/options_d"
-                    android:layout_width="match_parent"
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginRight="@dimen/_8dp"
-                    android:buttonTint="@color/colorPrimary"
-                    android:textColor="@color/black" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
 
-            </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/options_a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:textColor="@color/black" />
 
-            <LinearLayout
-                android:id="@+id/editTextLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16dp"
-                android:layout_marginTop="@dimen/_16dp"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
+                    <RadioButton
+                        android:id="@+id/options_b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:textColor="@color/black" />
 
-                <EditText
-                    android:id="@+id/editTextAnswer"
+                    <RadioButton
+                        android:id="@+id/options_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginEnd="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/options_d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:textColor="@color/black" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/editTextLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_16dp"
-                    android:hint="@string/hintEditText"
-                    android:inputType="number"
-                    android:maxLength="4"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/colorPrimary" />
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
 
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/editTextAnswer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:hint="@string/hintEditText"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/colorPrimary" />
 
-            <LinearLayout
-                android:id="@+id/checkboxLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:orientation="vertical"
-                android:padding="@dimen/_8dp"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
+                </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/checkboxA"
+                <LinearLayout
+                    android:id="@+id/checkboxLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorPrimary"
-                    android:fontFamily="serif"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginRight="@dimen/_8dp"/>
+                    android:layout_marginLeft="@dimen/_16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8dp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
 
-                <CheckBox
-                    android:id="@+id/checkboxB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorPrimary"
-                    android:fontFamily="serif"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginRight="@dimen/_8dp"/>
+                    <CheckBox
+                        android:id="@+id/checkboxA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:fontFamily="serif"
+                        android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/checkboxC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorPrimary"
-                    android:fontFamily="serif"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginRight="@dimen/_8dp"
-                    />
+                    <CheckBox
+                        android:id="@+id/checkboxB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:fontFamily="serif"
+                        android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/checkboxD"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorPrimary"
-                    android:fontFamily="serif"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:layout_marginRight="@dimen/_8dp"/>
+                    <CheckBox
+                        android:id="@+id/checkboxC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:fontFamily="serif"
+                        android:textColor="@color/black" />
 
-            </LinearLayout>
+                    <CheckBox
+                        android:id="@+id/checkboxD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:layout_marginRight="@dimen/_8dp"
+                        android:buttonTint="@color/colorPrimary"
+                        android:fontFamily="serif"
+                        android:textColor="@color/black" />
 
-        </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+            </android.support.constraint.ConstraintLayout>
 
-    <Button
-        android:id="@+id/buttonSubmit"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="@dimen/_220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_16dp"
-        android:background="@color/colorAccent"
-        android:elevation="@dimen/_8dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:text="@string/submit"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/buttonSubmit"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="@dimen/_220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16dp"
+            android:background="@color/colorAccent"
+            android:elevation="@dimen/_8dp"
+            android:text="@string/submit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 </ScrollView>
