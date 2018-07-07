@@ -34,31 +34,48 @@ public class MainActivity extends AppCompatActivity {
             R.string.optn_7a, R.string.optn_7b, R.string.optn_7c, R.string.optn_7d,
             R.string.optn_8a, R.string.optn_8b, R.string.optn_8c, R.string.optn_8d,
             R.string.optn_9a, R.string.optn_9b, R.string.optn_9c, R.string.optn_9d};
-    @BindView(R.id.radioGroup) RadioGroup radioGroupOptions;
-    @BindView(R.id.options_a) RadioButton radioButtonOptnA;
-    @BindView(R.id.options_b) RadioButton radioButtonOptnB;
-    @BindView(R.id.options_c) RadioButton radioButtonOptnC;
-    @BindView(R.id.options_d) RadioButton radioButtonOptnD;
+    @BindView(R.id.radioGroup)
+    RadioGroup radioGroupOptions;
+    @BindView(R.id.options_a)
+    RadioButton radioButtonOptnA;
+    @BindView(R.id.options_b)
+    RadioButton radioButtonOptnB;
+    @BindView(R.id.options_c)
+    RadioButton radioButtonOptnC;
+    @BindView(R.id.options_d)
+    RadioButton radioButtonOptnD;
 
-    @BindView(R.id.buttonSubmit) Button submitButton;
+    @BindView(R.id.buttonSubmit)
+    Button submitButton;
 
-    @BindView(R.id.checkboxLayout) LinearLayout checkBoxLayout;
-    @BindView(R.id.checkboxA)     CheckBox checkBoxA;
-    @BindView(R.id.checkboxB)     CheckBox checkBoxB;
-    @BindView(R.id.checkboxC)     CheckBox checkBoxC;
-    @BindView(R.id.checkboxD)     CheckBox checkBoxD;
+    @BindView(R.id.checkboxLayout)
+    LinearLayout checkBoxLayout;
+    @BindView(R.id.checkboxA)
+    CheckBox checkBoxA;
+    @BindView(R.id.checkboxB)
+    CheckBox checkBoxB;
+    @BindView(R.id.checkboxC)
+    CheckBox checkBoxC;
+    @BindView(R.id.checkboxD)
+    CheckBox checkBoxD;
 
-    @BindView(R.id.editTextLayout) LinearLayout editTextLayout;
-    @BindView(R.id.editTextAnswer) EditText editTextAnswer;
+    @BindView(R.id.editTextLayout)
+    LinearLayout editTextLayout;
+    @BindView(R.id.editTextAnswer)
+    EditText editTextAnswer;
 
-    @BindView(R.id.textViewQuestion) TextView tvQuestion;
-    @BindView(R.id.textViewScore) TextView textViewScore;
-    @BindView(R.id.textViewQuesNo) TextView textViewQuesNo;
+    @BindView(R.id.textViewQuestion)
+    TextView tvQuestion;
+    @BindView(R.id.textViewScore)
+    TextView textViewScore;
+    @BindView(R.id.textViewQuesNo)
+    TextView textViewQuesNo;
 
-    @BindView( R.id.card_viewQuestions) CardView cardViewQues;
+    @BindView(R.id.card_viewQuestions)
+    CardView cardViewQues;
 
-    private int quesTracker = 0, optionTracker = -1;
-    private int score = 0;
+    private int quesTracker, optionTracker = -1;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
             submitButton.setVisibility(View.GONE);
             textViewScore.setVisibility(View.GONE);
 
-            Toast.makeText(getApplicationContext(), getString(R.string.scoreMessage,score), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.scoreMessage, score), Toast.LENGTH_LONG).show();
 
             textViewQuesNo.setText(R.string.thankyouMessage);
             textViewQuesNo.setTextSize(24);
@@ -165,9 +182,56 @@ public class MainActivity extends AppCompatActivity {
             }
 
             ques++;
-            textViewQuesNo.setText("Ques. " + String.valueOf(ques) + "/10");
 
+            //set question no. and score
+            textViewQuesNo.setText("Ques. " + String.valueOf(ques) + "/10");
             textViewScore.setText("Score: " + String.valueOf(score));
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("QUES_TRACKER", quesTracker);
+        outState.putInt("SCORE", score);
+        outState.putInt("OPTNS_TRACKER", (optionTracker - 4));
+
+        if (quesTracker == 8) {
+
+            outState.putBoolean("CHECKBOX_A", checkBoxA.isChecked());
+            outState.putBoolean("CHECKBOX_B", checkBoxB.isChecked());
+            outState.putBoolean("CHECKBOX_C", checkBoxC.isChecked());
+            outState.putBoolean("CHECKBOX_D", checkBoxD.isChecked());
+        }
+
+        if(quesTracker == 9){
+            outState.putString("ET_ANSWER", editTextAnswer.getText().toString());
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        quesTracker = savedInstanceState.getInt("QUES_TRACKER");
+        score = savedInstanceState.getInt("SCORE");
+        optionTracker = savedInstanceState.getInt("OPTNS_TRACKER");
+
+        if (quesTracker == 8) {
+            radioGroupOptions.setVisibility(View.GONE);
+            checkBoxLayout.setVisibility(View.VISIBLE);
+            checkBoxA.setChecked(savedInstanceState.getBoolean("CHECKBOX_A"));
+            checkBoxB.setChecked(savedInstanceState.getBoolean("CHECKBOX_B"));
+            checkBoxC.setChecked(savedInstanceState.getBoolean("CHECKBOX_C"));
+            checkBoxD.setChecked(savedInstanceState.getBoolean("CHECKBOX_D"));
+        }
+
+        if(quesTracker == 9){
+            radioGroupOptions.setVisibility(View.GONE);
+            editTextLayout.setVisibility(View.VISIBLE);
+            editTextAnswer.setText(savedInstanceState.getString("ET_ANSWER"));
+        }
+        setQuestion(quesTracker);
+
     }
 }
